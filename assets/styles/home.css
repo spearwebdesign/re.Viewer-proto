@@ -1,3 +1,69 @@
+/*Mobile first*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    height: auto;
+}
+
+.movies {
+    width: 100%;
+    background-color: black;
+}
+
+.movies__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.movies__header--title {
+    color: white;
+}
+.movies_header--see-more a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-decoration: none;
+}
+.movies_header--see-more i {
+    margin-right: 16px;
+}
+.movies_header--see-more a:hover {
+    color: #CB134A;
+    transition: all .3s;
+}
+
+.movies__most-recent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    margin-left: 25px;
+    margin-right: 25px;
+    box-sizing: border-box;
+    border-bottom: solid rgba(91, 91, 92, 0.5) 3px;
+}
+
+.movies__most-recent a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    width: 150px;
+    height: 3.9em;
+    border-bottom: solid 5px #CB134A;
+}
+
 .fa {
     color: #CB134A;
     font-size: 20px;
@@ -5,8 +71,4 @@
 
 .fa-times {
     visibility: hidden;
-}
-
-.movies .series .seasons {
-
 }
