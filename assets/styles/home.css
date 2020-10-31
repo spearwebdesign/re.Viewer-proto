@@ -4,6 +4,14 @@
     margin: 0;
     padding: 0;
 }
+.fa {
+    color: #CB134A;
+    font-size: 20px;
+}
+
+.fa-times {
+    visibility: hidden;
+}
 
 .main {
     width: 100%;
@@ -12,6 +20,7 @@
 
 .movies {
     width: 100%;
+    height: auto;
     background-color: black;
 }
 
@@ -20,8 +29,6 @@
     justify-content: space-between;
     align-items: center;
     height: 4em;
-    margin-left: 25px;
-    margin-right: 25px;
 }
 .movies__header--title {
     color: white;
@@ -47,8 +54,6 @@
     justify-content: space-between;
     align-items: center;
     height: 4em;
-    margin-left: 25px;
-    margin-right: 25px;
     box-sizing: border-box;
     border-bottom: solid rgba(91, 91, 92, 0.5) 3px;
 }
@@ -64,11 +69,67 @@
     border-bottom: solid 5px #CB134A;
 }
 
-.fa {
-    color: #CB134A;
-    font-size: 20px;
+.movies__container {
+    display: flex;
+    width:100%;
+    height: auto;
+    margin-top: 10px;
 }
 
-.fa-times {
-    visibility: hidden;
+.movies__container--ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-left: -18px;
+}
+.movies__container--li {
+    color: white;
+    list-style-type: none;
+    font-size: 12px;
+    width: 110px;
+    height: 300px;
+    margin: 20px
+}
+
+.movies__container--image {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 130px;
+    height: 180px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-bottom: 15px;
+    padding-left: 12px;
+}
+
+.movies__container--image-year {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 30px;
+    border: white 1px solid;
+    border-radius: 5px;
+    
+}
+
+.movies__container--header {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.movies__container--header-title {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.movies__container--header-assessment {
+    font-size: 16px;
+    font-weight: bold;
+    color: #CB134A;
 }
