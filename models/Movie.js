@@ -1,4 +1,4 @@
-class Movie {
+export default class Movie {
     constructor(props) {
         this.id = props.id;
         this.genres = props.genres;
