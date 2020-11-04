@@ -24,26 +24,52 @@ class HomeController {
             poster_path: '',
             release_date: '',
         };
-        // this.index();
+        this.index();
     }
 
-    index() {
+    async index() {
+        let anioActual = new Date();
+
         let filters = {
             requestTo: 'movies',
             filters: {
-                primary_release_year: 2020,
+                primary_release_year: anioActual.getFullYear(),
                 sort_by: 'release_date.desc',
             }
         }
 
-        requestManager
+        let latestMovies = await requestManager
             .then(data => {
-                return new data.default(filters)
+                // return new data.default(filters);
+                // console.log(new data.default(filters));
+                return new data.default(filters);
             })
             .catch(error => console.log(error));
+
+        // console.log(latestMovies.results);
+
+        let movieContainer = document.getElementById('movieContainer');
+        let movie = document.createElement('div');
+        latestMovies.results.forEach(element => {
+
+            movie.innerHTML = `
+            <li class="movies__container--li">
+                <figure class="movies__container--image">
+                    <img src="${element.poster_path}" alt="">
+                    <span class="movies__container--image-year">${element.release_date}</span>
+                    <a class="movies__container--image-link" href="#"></a>
+                </figure>
+                <header class="movies__container--header">
+                    <h2 class="movies__container--header-title">${element.original_title}</h2>
+                    <span class="movies__container--header-assessment">TMDB ${element.popularity}</span>
+                </header>
+            </li>
+            `;
+            movieContainer.innerHTML += movie.innerHTML;
+        });
     }
 
-    getPremiere() {
+    getPremiere(pY) {
         let filters = {
             requestTo: 'movies',
             filters: {
@@ -51,6 +77,8 @@ class HomeController {
                 sort_by: 'release_date.desc',
             }
         }
+
+        console.log(pY);
 
         requestManager
             .then(data => {
