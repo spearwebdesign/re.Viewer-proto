@@ -1,5 +1,5 @@
 'use strict';
-const Movie = import("../models/Movie.js");
+// const Movie = import("../models/Movie.js");
 // import serie here
 
 const API = 'https://api.themoviedb.org/3/';
@@ -15,9 +15,10 @@ export default class requestManager {
     processRequest(requestTo, filters) {
         // requestTo: movie or serie
         // TODO: process and redirect to action
+        let results;
         switch (requestTo) {
             case 'movies':
-                return this.getMovies(filters);
+                results = this.getMovies(filters);
                 break;
             case 'series':
                 // TODO: getSerie(filters)
@@ -25,15 +26,11 @@ export default class requestManager {
             default:
                 console.log('Error');
         }
+
+        return results;
     }
 
-    getMovieById(id) {
-        // let movie = Movie
-        //     .then(data => new data.default({}))
-        //     .catch(error => console.log(error))
-    }
-
-    getMovies(filters) {
+    async getMovies(filters) {
         // TODO: filter array and request to API
         // request here
 
@@ -46,23 +43,24 @@ export default class requestManager {
         let filters_url = '';
         for (const property in filters) {
             filters_url += `&${property}=${filters[property]}`
-            console.log(filters_url);
+            // console.log(filters_url);
         }
 
         let URL = `${API}discover/movie?api_key=${API_KEY}${filters_url}`
 
-        fetch(URL)
-            .then(response => {
-                response.json()
-                .then(data => {
-                    console.log(data);
-                })
-                .catch(error => console.error(error));
-            });
+        let results = await fetch(URL)
+        .then(response => {
+            return response.json()
+            .then(data => {
+                return data;
+            })
+            .catch(error => console.error(error));
+        });
+
+        return results;
 
         // return movies;
         // return 'hi i am in getMovies function';
         // Assigning results to movie model array
-
     }
 }
