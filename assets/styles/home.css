@@ -73,7 +73,6 @@
     display: flex;
     width:100%;
     height: auto;
-    margin-top: 10px;
 }
 
 .movies__container--ul {
@@ -82,15 +81,17 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin-left: -18px;
+    
 }
 .movies__container--li {
     color: white;
     list-style-type: none;
     font-size: 12px;
-    width: 110px;
+    width: 130px;
     height: 300px;
-    margin: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
     cursor: pointer;
 }
 
@@ -98,12 +99,12 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
-    width: 130px;
+    width: 128px;
     height: 180px;
     border: 1px solid white;
     border-radius: 5px;
     padding-bottom: 15px;
-    padding-left: 12px;
+    
 }
 
 .movies__container--image-year {
