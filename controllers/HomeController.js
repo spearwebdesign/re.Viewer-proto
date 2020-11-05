@@ -92,3 +92,9 @@ class HomeController {
 // const homeController = new HomeController(new requestManager(new Movie({ id: 12}), {}, []));
 // const homeController = new HomeController(new requestManager(this.movie, {}, []));
 const homeController = new HomeController();
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(error => {
+        console.log(error.message)
+    })
+}
