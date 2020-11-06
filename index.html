@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" conteiner="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://use.fontawesome.com/8d99a7dfdd.js"></script>
+    <link rel="stylesheet" href="./assets/static/fontIcons.css">
     <link rel="stylesheet" href="./assets/styles/home.css">
     <link rel="icon" type="image/png" href="./assets/static/images/favicon.png">
     <title>Cuevana clone</title>
@@ -13,85 +14,105 @@
 <body>
     <div class="container">
         <header class="header">
-            <i class="fa fa-bars"></i>
-            <i class="fa fa-times" aria-hidden="true"></i>
+            <div class="hidden-navbar">
+                <i class="fa fa-bars"></i>
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
         </header>
 
         <div class="main">
-            <section class="movies">
-                <header class="movies__header">
+            <div class="main__container">
 
-                    <h1 class="movies__header--title">Peliculas</h1>
-                    <div class="movies_header--see-more">
-                        <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Ver más</a>
+                <div class="search__form">
+                    <form action="javascritp:;">
+                        <input type="text" name="search" id="" class="search__text">
+                        <i class="fa fa-times" onclick="" aria-hidden="false"></i>
+                    </form>
+                </div>
+
+                <section class="movies">
+                    <header class="movies__header">
+
+                        <h1 class="movies__header--title">Peliculas</h1>
+                        <div class="movies_header--see-more">
+                            <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Ver más</a>
+                        </div>
+
+                    </header>
+
+                    <div class="movies__most-recent">
+                        <a href="#">MAS RECIENTES</a>
                     </div>
 
-                </header>
+                    <div class="movies__container">
+                        <ul class="movies__container--ul" id="movieContainer">
+                            <!-- MOVIE LIST -->
+                        </ul>
+                    </div>
 
-                <div class="movies__most-recent">
-                    <a href="#">MAS RECIENTES</a>
+                </section>
+
+                <section class="episodes">
+                    <form action="javascript:homeController.getPremiere(premiereYear.value);">
+                        <input type="text" id="premiereYear">
+                        <button type="submit">ejecutar index</button>
+                    </form>
+                </section>
+
+                <section class="series">
+
+                </section>
+
+                <section class="seasons">
+
+                </section>
+
+                <div class="sidebar">
+                    <section class="popular">
+
+                    </section>
+                    <section class="premiere">
+
+                    </section>
                 </div>
 
-                <div class="movies__container">
-                    <ul class="movies__container--ul" id="movieContainer">
-                        <!-- MOVIE LIST -->
-                    </ul>
-                </div>
+                <article class="page-info">
+                    <h1>CUEVANA</h1>
+                    <h2>VER PELÍCULAS Y SERIES ONLINE</h2>
+                    <p>
+                        Somos el sitio oficial de cuevana, no te dejes engañar por falsos sitios como cuevana2 y
+                        cuevana3,
+                        aqui te ofrecemos el mejor trato a la hora de ver peliculas online gratis, muchos sitios
+                        trataran de
+                        igualarnos y superarnos a lo largo de la historia,
+                        pero solo hay un sitio original y oficial, y es este.
+                        A lo largo de la ultima decada nos enfocamos en brindar a nustros usuarios el mejor
+                        servicio de streaming para ver todo tipo de contenido online de forma gratuita, contamos con
+                        miles
+                        de
+                        series
+                        y peliculas gratis, en un muy amplio catalogo de formatos e idiomas, series y peliculas en
+                        español
+                        latino,
+                        subtituladas, en castellano e inclusive en ingles.
+                        Este sitio fue creado sin intenciones de lucro y con la intencion de que miles de usuarios y
+                        cinefilos que no tienen la posibilidad de asistir al cine a diario puedan estar actualizados con
+                        los
+                        mas
+                        recientes estrenos 2020 online, ya sean peliculas de comedia, accion, drama, terror entre muchos
+                        otros
+                        tantos
+                        que cuevana le brindara de forma completamente gratuita.
+                    </p>
+                </article>
+            </div>
 
-            </section>
+            <footer>
+                logo
+                Cuevana © Todos los Derechos Reservados. 2020
+            </footer>
 
-            <section class="episodes">
-                <form action="javascript:homeController.getPremiere(premiereYear.value);">
-                    <input type="text" name="" id="premiereYear">
-                    <button type="submit">ejecutar index</button>
-                </form>
-            </section>
-
-            <section class="series">
-
-            </section>
-
-            <section class="seasons">
-
-            </section>
         </div>
-
-        <div class="sidebar">
-            <section class="popular">
-
-            </section>
-            <section class="premiere">
-
-            </section>
-        </div>
-
-        <article class="page-info">
-            <h1>CUEVANA</h1>
-            <h2>VER PELÍCULAS Y SERIES ONLINE</h2>
-            <p>
-                Somos el sitio oficial de cuevana, no te dejes engañar por falsos sitios como cuevana2 y cuevana3,
-                aqui te ofrecemos el mejor trato a la hora de ver peliculas online gratis, muchos sitios trataran de
-                igualarnos y superarnos a lo largo de la historia,
-                pero solo hay un sitio original y oficial, y es este.
-                A lo largo de la ultima decada nos enfocamos en brindar a nustros usuarios el mejor
-                servicio de streaming para ver todo tipo de contenido online de forma gratuita, contamos con miles de
-                series
-                y peliculas gratis, en un muy amplio catalogo de formatos e idiomas, series y peliculas en español
-                latino,
-                subtituladas, en castellano e inclusive en ingles.
-                Este sitio fue creado sin intenciones de lucro y con la intencion de que miles de usuarios y
-                cinefilos que no tienen la posibilidad de asistir al cine a diario puedan estar actualizados con los mas
-                recientes estrenos 2020 online, ya sean peliculas de comedia, accion, drama, terror entre muchos otros
-                tantos
-                que cuevana le brindara de forma completamente gratuita.
-            </p>
-        </article>
-
-        <footer>
-            logo
-            Cuevana © Todos los Derechos Reservados. 2020
-        </footer>
-
     </div>
     <script src="./controllers/HomeController.js"></script>
 </body>

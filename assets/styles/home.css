@@ -4,13 +4,13 @@
     margin: 0;
     padding: 0;
 }
-.fa {
-    color: #CB134A;
-    font-size: 20px;
-}
 
-.fa-times {
-    visibility: hidden;
+.container {
+    background: url('../static/images/fondo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center top;
+    background-size: 100% auto;
 }
 
 .main {
@@ -21,7 +21,7 @@
 .movies {
     width: 100%;
     height: auto;
-    background-color: black;
+    /* background-color: black; */
 }
 
 .movies__header {
