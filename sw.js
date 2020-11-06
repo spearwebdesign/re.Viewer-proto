@@ -1,4 +1,10 @@
-const VERSION = 'v1'
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(error => {
+        console.log(error.message)
+    })
+}
+
+const VERSION = 'v1.0'
 
 self.addEventListener('install', event => {
     event.waitUntil(precache())
