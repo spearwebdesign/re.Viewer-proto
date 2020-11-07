@@ -1,9 +1,4 @@
-/*Mobile first*/
-
-*{
-    margin: 0;
-    padding: 0;
-}
+/* MOBILE */
 
 body {
     background-color: black;
@@ -12,14 +7,13 @@ body {
 .container {
     background: url('../static/images/fondo.jpg');
     background-repeat: no-repeat;
-    /* background-attachment: fixed; */
     background-position: center top;
     background-size: 100% auto;
-    margin-left: 8em;
-    margin-right: 8em;
 }
 
 .main {
+    background: linear-gradient(to bottom, transparent, black);
+    margin: 1em;
     width: 100%;
     height: auto;
 }
@@ -36,20 +30,23 @@ body {
     align-items: center;
     height: 4em;
 }
+
 .movies__header--title {
     color: white;
 }
+
 .movies_header--see-more a {
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: white;
     text-decoration: none;
 }
+
 .movies_header--see-more i {
     margin-right: 16px;
 }
+
 .movies_header--see-more a:hover {
     color: #CB134A;
     transition: all .3s;
@@ -77,7 +74,7 @@ body {
 
 .movies__container {
     display: flex;
-    width:100%;
+    width: 100%;
     height: auto;
 }
 
@@ -88,6 +85,7 @@ body {
     width: 100%;
     /* margin-left: -18px; */
 }
+
 .movies__container--li {
     color: white;
     list-style-type: none;
@@ -139,4 +137,216 @@ body {
     font-size: 16px;
     font-weight: bold;
     color: #CB134A;
+}
+
+/* BOTTOM */
+
+.bottom__container {
+    background: url('../static/images/fondo.jpg');
+    background-repeat: no-repeat;
+    background-position: center 5em;
+    background-size: 100% auto;
+    opacity: 0.2;
+    filter: grayscale(100%);
+}
+
+.page-info {
+    background-color: #101010;
+    margin: 1em 1em 0 1em;
+    padding: 1em;
+    color: white;
+    opacity: 1;
+}
+
+.page-info>h1 {
+    font-size: 48px;
+}
+
+.page-info>h2 {
+    font-size: 20px;
+}
+
+.page-info>p {
+    margin-bottom: 1em;
+}
+
+footer {
+    color: white;
+    font-size: 14px;
+    font-weight: lighter;
+    padding-top: 11em;
+}
+
+footer>.logo__container {
+    width: 100%;
+    text-align: center;
+}
+
+footer>.info__container {
+    text-align: center;
+}
+
+@media only screen and (min-width: 1440px) {
+    /* LAPTOP L */
+    body {
+        background: url('../static/images/fondo.jpg');
+        background-repeat: no-repeat;
+        /* background-attachment: fixed; */
+        background-position: center top;
+        background-size: 100% auto;
+    }
+    .container {
+        background: linear-gradient(to bottom, transparent, black, transparent);
+        margin-left: 8em;
+        margin-right: 8em;
+    }
+    .main {
+        width: 100%;
+        height: auto;
+    }
+    .movies {
+        width: 100%;
+        height: auto;
+        /* background-color: black; */
+    }
+    .movies__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 4em;
+    }
+    .movies__header--title {
+        color: white;
+    }
+    .movies_header--see-more a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+    }
+    .movies_header--see-more i {
+        margin-right: 16px;
+    }
+    .movies_header--see-more a:hover {
+        color: #CB134A;
+        transition: all .3s;
+    }
+    .movies__most-recent {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 4em;
+        box-sizing: border-box;
+        border-bottom: solid rgba(91, 91, 92, 0.5) 3px;
+    }
+    .movies__most-recent a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        width: 150px;
+        height: 3.9em;
+        border-bottom: solid 5px #CB134A;
+    }
+    .movies__container {
+        display: flex;
+        width: 100%;
+        height: auto;
+    }
+    .movies__container--ul {
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+        width: 100%;
+        /* margin-left: -18px; */
+    }
+    .movies__container--li {
+        color: white;
+        list-style-type: none;
+        font-size: 12px;
+        /* width: 110px; */
+        /* height: 300px; */
+        /* width: 20%; */
+        /* margin: 20px */
+        width: 13em;
+        margin-right: 2em;
+        margin-bottom: 2em;
+    }
+    .movies__container--image {
+        display: flex;
+        align-items: flex-end;
+        /* justify-content: flex-start; */
+        /* width: 130px;
+    height: 180px; */
+        border: 1px solid white;
+        border-radius: 5px;
+        /* padding-bottom: 15px;
+    padding-left: 12px; */
+    }
+    .movies__container--image-year {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 30px;
+        border: white 1px solid;
+        border-radius: 5px;
+    }
+    .movies__container--header {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    .movies__container--header-title {
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .movies__container--header-assessment {
+        font-size: 16px;
+        font-weight: bold;
+        color: #CB134A;
+    }
+    /* BOTTOM */
+    .bottom__container {
+        background: url('../static/images/fondo.jpg');
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 100% auto;
+        /* filter: opacity(25%); */
+        opacity: 0.5;
+    }
+    .bottom__info {
+        background-color: black;
+        /* filter: opacity(25%); */
+        /* opacity: 0.5; */
+    }
+    .page-info {
+        color: white;
+        opacity: 1;
+    }
+    .page-info>h1 {
+        font-size: 48px;
+    }
+    .page-info>h2 {
+        font-size: 20px;
+    }
+    .page-info>p {
+        margin-bottom: 1em;
+    }
+    footer {
+        color: white;
+        font-size: 14px;
+        font-weight: lighter;
+    }
+    footer>.logo__container {
+        width: 100%;
+        filter: grayscale(100%);
+        text-align: left;
+    }
+    footer>.info__container {
+        text-align: center;
+    }
 }
