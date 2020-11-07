@@ -21,7 +21,6 @@ body {
 .movies {
     width: 100%;
     height: auto;
-    /* background-color: black; */
 }
 
 .movies__header {
@@ -81,19 +80,13 @@ body {
 .movies__container--ul {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
     width: 100%;
-    /* margin-left: -18px; */
 }
 
 .movies__container--li {
     color: white;
     list-style-type: none;
     font-size: 12px;
-    /* width: 110px; */
-    /* height: 300px; */
-    /* width: 20%; */
-    /* margin: 20px */
     width: 13em;
     margin-right: 2em;
     margin-bottom: 2em;
@@ -102,13 +95,8 @@ body {
 .movies__container--image {
     display: flex;
     align-items: flex-end;
-    /* justify-content: flex-start; */
-    /* width: 130px;
-    height: 180px; */
     border: 1px solid white;
     border-radius: 5px;
-    /* padding-bottom: 15px;
-    padding-left: 12px; */
 }
 
 .movies__container--image-year {
