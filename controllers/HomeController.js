@@ -47,7 +47,7 @@ class HomeController {
             .catch(error => console.log(error));
 
         let movieContainer = document.getElementById('movieContainer');
-        
+
         movieContainer.innerHTML = components.build(latestMovies.results);
         console.log(movieContainer)
     }
