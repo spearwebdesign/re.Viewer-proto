@@ -49,7 +49,10 @@ class HomeController {
         let movieContainer = document.getElementById('movieContainer');
         
         movieContainer.innerHTML = components.build(latestMovies.results);
-        console.log(movieContainer)
+        // console.log(movieContainer)
+
+        //Execute the saveLocalStorage function
+        saveLocalStorage(latestMovies);
     }
 
     getPremiere(pY) {
@@ -76,3 +79,4 @@ class HomeController {
 // const homeController = new HomeController(new requestManager(this.movie, {}, []));
 const homeController = new HomeController();
 const components = new Components();
+
