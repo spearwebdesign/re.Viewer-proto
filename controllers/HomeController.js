@@ -46,27 +46,10 @@ class HomeController {
             })
             .catch(error => console.log(error));
 
-        // console.log(latestMovies.results);
-
         let movieContainer = document.getElementById('movieContainer');
-        let movie = document.createElement('div');
-        latestMovies.results.forEach(element => {
-
-            movie.innerHTML = `
-            <li class="movies__container--li">
-                <figure class="movies__container--image">
-                    <img src="${element.poster_path}" alt="">
-                    <span class="movies__container--image-year">${element.release_date}</span>
-                    <a class="movies__container--image-link" href="#"></a>
-                </figure>
-                <header class="movies__container--header">
-                    <h2 class="movies__container--header-title">${element.original_title}</h2>
-                    <span class="movies__container--header-assessment">TMDB ${element.popularity}</span>
-                </header>
-            </li>
-            `;
-            movieContainer.innerHTML += movie.innerHTML;
-        });
+        
+        movieContainer.innerHTML = components.build(latestMovies.results);
+        console.log(movieContainer)
     }
 
     getPremiere(pY) {
@@ -92,9 +75,4 @@ class HomeController {
 // const homeController = new HomeController(new requestManager(new Movie({ id: 12}), {}, []));
 // const homeController = new HomeController(new requestManager(this.movie, {}, []));
 const homeController = new HomeController();
-
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch(error => {
-        console.log(error.message)
-    })
-}
+const components = new Components();
