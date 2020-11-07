@@ -5,12 +5,18 @@
     padding: 0;
 }
 
+body {
+    background-color: black;
+}
+
 .container {
     background: url('../static/images/fondo.jpg');
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-position: center top;
     background-size: 100% auto;
+    margin-left: 8em;
+    margin-right: 8em;
 }
 
 .main {
@@ -78,31 +84,34 @@
 
 .movies__container--ul {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
     width: 100%;
-    margin-left: -18px;
+    /* margin-left: -18px; */
 }
 .movies__container--li {
     color: white;
     list-style-type: none;
     font-size: 12px;
-    width: 110px;
-    height: 300px;
-    margin: 20px
+    /* width: 110px; */
+    /* height: 300px; */
+    /* width: 20%; */
+    /* margin: 20px */
+    width: 13em;
+    margin-right: 2em;
+    margin-bottom: 2em;
 }
 
 .movies__container--image {
     display: flex;
     align-items: flex-end;
-    justify-content: flex-start;
-    width: 130px;
-    height: 180px;
+    /* justify-content: flex-start; */
+    /* width: 130px;
+    height: 180px; */
     border: 1px solid white;
     border-radius: 5px;
-    padding-bottom: 15px;
-    padding-left: 12px;
+    /* padding-bottom: 15px;
+    padding-left: 12px; */
 }
 
 .movies__container--image-year {
@@ -113,7 +122,6 @@
     height: 30px;
     border: white 1px solid;
     border-radius: 5px;
-    
 }
 
 .movies__container--header {
