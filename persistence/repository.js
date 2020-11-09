@@ -21,17 +21,22 @@ if (storageAvailable('localStorage')) {
 
 //Save movies in local storage
 function saveLocalStorage(latestMovies) { 
-    localStorage.setItem('Movies', JASON.stringify(latestMovies.results) );
+    localStorage.setItem('Movies', JSON.stringify(latestMovies.results));
 }
 
-//Get movie from local storage
-// function getLocalStorage(save) {
+//Get movie from localStorage
 
-//     let getStorageMovies = JASON.parse(localStorage.getItem('Movies')); 
+function getLocalStorage() {
 
-//     console.log(getStorageMovies);
-// }
-
-// // getLocalStorage()
+    //Exists in local Storage
+    if (localStorage.getItem('Movies')) {
+        let getStorageMovies = JSON.parse(localStorage.getItem('Movies')); 
+        // console.log(getStorageMovies);
+        return getStorageMovies
+    }else {
+        // console.log('There are no entries in the local storage');
+        return false
+    }
+}
 
 
