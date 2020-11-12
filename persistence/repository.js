@@ -1,3 +1,4 @@
+const requestManager = import("../js/requestManager.js");
 
 //Check availability with the browser
 function storageAvailable(type) {
@@ -20,13 +21,12 @@ if (storageAvailable('localStorage')) {
     }
 
 //Save movies in local storage
-function saveLocalStorage(latestMovies) { 
-    localStorage.setItem('Movies', JSON.stringify(latestMovies.results));
+function saveLocalStorage(saveTo, latestMovies) { 
+    localStorage.setItem(saveTo, JSON.stringify(latestMovies.results));
 }
 
 //Get movie from localStorage
-
-function getLocalStorage() {
+async function getData(filters) {
 
     //Exists in local Storage
     if (localStorage.getItem('Movies')) {
@@ -35,8 +35,18 @@ function getLocalStorage() {
         return getStorageMovies
     }else {
         // console.log('There are no entries in the local storage');
-        return false
+        let latestMovies = await requestManager
+            .then(data => {
+                // return new data.default(filters);
+                // console.log(new data.default(filters));
+                new data.default(filters);
+            })
+            .catch(error => console.log(error));
+
+        saveLocalStorage('Movies', latestMovies.results)
+        return latestMovies.results
     }
 }
+// getData()
 
 
