@@ -21,12 +21,22 @@ if (storageAvailable('localStorage')) {
     }
 
 //Save movies in local storage
+<<<<<<< HEAD
 function saveLocalStorage(saveTo, latestMovies) { 
     localStorage.setItem(saveTo, JSON.stringify(latestMovies.results));
 }
 
 //Get movie from localStorage
 async function getData(filters) {
+=======
+function saveLocalStorage(latestMovies) { 
+    localStorage.setItem('Movies', JSON.stringify(latestMovies.results));
+}
+
+//Get movie from localStorage
+
+function getLocalStorage() {
+>>>>>>> 0681d4d1acb12747d78f78e3146aef88f34370e7
 
     //Exists in local Storage
     if (localStorage.getItem('Movies')) {
@@ -35,6 +45,7 @@ async function getData(filters) {
         return getStorageMovies
     }else {
         // console.log('There are no entries in the local storage');
+<<<<<<< HEAD
         let latestMovies = await requestManager
             .then(data => {
                 // return new data.default(filters);
@@ -48,5 +59,10 @@ async function getData(filters) {
     }
 }
 // getData()
+=======
+        return false
+    }
+}
+>>>>>>> 0681d4d1acb12747d78f78e3146aef88f34370e7
 
 
