@@ -1,3 +1,4 @@
+const requestManager = import("../js/requestManager.js");
 
 //Check availability with the browser
 function storageAvailable(type) {
@@ -8,11 +9,7 @@ function storageAvailable(type) {
         storage.removeItem(x);
         return true;
     }
-<<<<<<< HEAD
     catch (e) {
-=======
-    catch(e) {
->>>>>>> 990887f1718c95454af68d537e0ddaa36d4c090c
         return false;
     }
 }
@@ -21,33 +18,36 @@ if (storageAvailable('localStorage')) {
     console.log('localStorage available')
 } else {
     console.log('localStorage not available')
-<<<<<<< HEAD
 }
 
 //Save movies in local storage
 function saveLocalStorage(latestMovies) {
     localStorage.setItem('Movies', JSON.stringify(latestMovies.results));
-=======
-    }
-
-//Save movies in local storage
-function saveLocalStorage(latestMovies) { 
-    localStorage.setItem('Movies', JASON.stringify(latestMovies.results) );
->>>>>>> 990887f1718c95454af68d537e0ddaa36d4c090c
 }
 
-//Get movie from local storage
-// function getLocalStorage(save) {
+//Save movies in local storage
+function saveLocalStorage(saveTo, latestMovies) {
+    localStorage.setItem(saveTo, JSON.stringify(latestMovies.results));
+}
 
-<<<<<<< HEAD
-//     let getStorageMovies = JASON.parse(localStorage.getItem('Movies'));
-=======
-//     let getStorageMovies = JASON.parse(localStorage.getItem('Movies')); 
->>>>>>> 990887f1718c95454af68d537e0ddaa36d4c090c
+//Get movie from localStorage
+async function getData(filters) {
+    //Exists in local Storage
+    if (localStorage.getItem('Movies')) {
+        let getStorageMovies = JSON.parse(localStorage.getItem('Movies'));
+        // console.log(getStorageMovies);
+        return getStorageMovies
+    } else {
+        // console.log('There are no entries in the local storage');
+        let latestMovies = await requestManager
+            .then(data => {
+                // return new data.default(filters);
+                // console.log(new data.default(filters));
+                new data.default(filters);
+            })
+            .catch(error => console.log(error));
 
-//     console.log(getStorageMovies);
-// }
-
-// // getLocalStorage()
-
-
+        saveLocalStorage('Movies', latestMovies.results)
+        return latestMovies.results
+    }
+}
