@@ -18,16 +18,17 @@ class Components {
             let year = new Date(element.release_date).getFullYear();
 
             movie.innerHTML = `
-            <li class="movies__container--li">
-                <figure class="movies__container--image">
-                    <img src="${image}" alt="" style="width: 100%">
-                    <span class="movies__container--image-year">${year}</span>
-                    <a class="movies__container--image-link" href="#"></a>
-                </figure>
-                <header class="movies__container--header">
-                    <h2 class="movies__container--header-title">${element.original_title}</h2>
-                    <span class="movies__container--header-assessment">TMDB ${element.popularity}</span>
-                </header>
+            <li class="card">
+                <a href="#">
+                    <figure class="card__figure">
+                        <img class="card__figure--image" src="${image}" alt="" style="width: 100%">
+                        <span class="card__figure--year">${year}</span>
+                    </figure>
+                    <header class="card__header">
+                        <h2 class="card__title">${element.original_title}</h2>
+                        <span class="card__assessment">TMDB ${element.popularity}</span>
+                    </header>
+                </a>
             </li>
             `;
             movieContainer.innerHTML += movie.innerHTML;
