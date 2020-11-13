@@ -41,8 +41,10 @@ async function getData(listName, filters) {
             })
             .catch(error => console.log(error));
 
-            console.log(`${listName} obtained from API`);
-        saveLocalStorage(listName, response.results);
+        console.log(`${listName} obtained from API`);
+        if (response.results != undefined) {
+            saveLocalStorage(listName, response.results);
+        }
         return response.results
     }
 }
