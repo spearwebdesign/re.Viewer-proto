@@ -1,18 +1,18 @@
-class Components{
-    constructor(){
+class Components {
+    constructor() {
 
     }
-    build(latestMovies) {
+    buildSection(list) {
 
-        let movieContainer = document.createElement('div'); 
+        let movieContainer = document.createElement('div');
         let movie = document.createElement('div');
 
-        latestMovies.forEach(element => {
+        list.forEach(element => {
 
             movie.innerHTML = `
             <li class="movies__container--li">
                 <figure class="movies__container--image">
-                    <img src="${element.poster_path}" alt="">
+                    <img src="http://image.tmdb.org/t/p/w300/${element.poster_path}" alt="">
                     <span class="movies__container--image-year">${element.release_date}</span>
                     <a class="movies__container--image-link" href="#"></a>
                 </figure>
@@ -24,10 +24,14 @@ class Components{
             `;
             movieContainer.innerHTML += movie.innerHTML;
         });
-        
+
         return movieContainer.innerHTML;
     }
-} 
+
+    buildEpisodeSection(list) {
+        // TODO
+    }
+}
 
 
 

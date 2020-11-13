@@ -13,24 +13,11 @@
 // import Movie from '../models/Movie.js';
 
 class HomeController {
-    // constructor(requestManager) {
-    //     this.requestManager = requestManager;
-    //     this.movie = {
-    //         id: 12,
-    //         genres: { id: 1, name: 'Action' },
-    //         original_title: 'el club de la pelea',
-    //         overview: '',
-    //         popularity: 5,
-    //         poster_path: '',
-    //         release_date: '',
-    //     };
-    //     this.index();
-    // }
     constructor() {
         this.index();
     }
 
-    index() {
+    async index() {
         let anioActual = new Date();
 
         let filters = {
@@ -41,25 +28,10 @@ class HomeController {
             }
         }
 
-        // let latestMovies = await requestManager
-        //     .then(data => {
-        //         // return new data.default(filters);
-        //         // console.log(new data.default(filters));
-        //         return new data.default(filters);
-        //     })
-        //     .catch(error => console.log(error));
-
-        let latestMovies = getData(filters);
+        let latestMovies = await getData('Movies', filters);
 
         let movieContainer = document.getElementById('movieContainer');
-<<<<<<< HEAD
-
-        movieContainer.innerHTML = components.build(latestMovies.results);
-=======
-        console.log(latestMovies)
-        movieContainer.innerHTML = components.build(latestMovies);
->>>>>>> gr/feature-movies
-        // console.log(movieContainer)
+        movieContainer.innerHTML = components.buildSection(latestMovies);
     }
 
     // getPremiere(pY) {

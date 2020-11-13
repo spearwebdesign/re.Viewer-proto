@@ -21,33 +21,28 @@ if (storageAvailable('localStorage')) {
 }
 
 //Save movies in local storage
-function saveLocalStorage(latestMovies) {
-    localStorage.setItem('Movies', JSON.stringify(latestMovies.results));
-}
-
-//Save movies in local storage
-function saveLocalStorage(saveTo, latestMovies) {
-    localStorage.setItem(saveTo, JSON.stringify(latestMovies.results));
+function saveLocalStorage(listName, list) {
+    localStorage.setItem(listName, JSON.stringify(list));
 }
 
 //Get movie from localStorage
-async function getData(filters) {
+async function getData(listName, filters) {
     //Exists in local Storage
-    if (localStorage.getItem('Movies')) {
-        let getStorageMovies = JSON.parse(localStorage.getItem('Movies'));
-        // console.log(getStorageMovies);
-        return getStorageMovies
+    if (localStorage.getItem(listName)) {
+        let getList = JSON.parse(localStorage.getItem(listName));
+        console.log(`${listName} obtained from local storage`);
+        return getList;
     } else {
         // console.log('There are no entries in the local storage');
-        let latestMovies = await requestManager
+        let response = await requestManager
             .then(data => {
-                // return new data.default(filters);
-                // console.log(new data.default(filters));
-                new data.default(filters);
+                // console.log(new data.default(filters))
+                return new data.default(filters);
             })
             .catch(error => console.log(error));
 
-        saveLocalStorage('Movies', latestMovies.results)
-        return latestMovies.results
+            console.log(`${listName} obtained from API`);
+        saveLocalStorage(listName, response.results);
+        return response.results
     }
 }
