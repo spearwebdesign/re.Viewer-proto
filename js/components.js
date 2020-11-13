@@ -8,12 +8,20 @@ class Components {
         let movie = document.createElement('div');
 
         list.forEach(element => {
+            let image;
+            if (element.poster_path === null) {
+                image = "../assets/static/images/image-not-available.jpg";
+            } else {
+                image = "http://image.tmdb.org/t/p/w300/" + element.poster_path;
+            }
+
+            let year = new Date(element.release_date).getFullYear();
 
             movie.innerHTML = `
             <li class="movies__container--li">
                 <figure class="movies__container--image">
-                    <img src="http://image.tmdb.org/t/p/w300/${element.poster_path}" alt="">
-                    <span class="movies__container--image-year">${element.release_date}</span>
+                    <img src="${image}" alt="" style="width: 100%">
+                    <span class="movies__container--image-year">${year}</span>
                     <a class="movies__container--image-link" href="#"></a>
                 </figure>
                 <header class="movies__container--header">

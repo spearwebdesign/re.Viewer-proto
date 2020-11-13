@@ -20,12 +20,12 @@ if (storageAvailable('localStorage')) {
     console.log('localStorage not available')
 }
 
-//Save movies in local storage
+//Save any list in local storage
 function saveLocalStorage(listName, list) {
     localStorage.setItem(listName, JSON.stringify(list));
 }
 
-//Get movie from localStorage
+//Get any list from localStorage
 async function getData(listName, filters) {
     //Exists in local Storage
     if (localStorage.getItem(listName)) {

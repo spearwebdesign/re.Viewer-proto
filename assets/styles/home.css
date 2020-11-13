@@ -142,7 +142,12 @@ body {
     align-items: flex-end;
     border: 1px solid white;
     border-radius: 5px;
+    position: relative;
 }
+
+/* .movies__container--image > span {
+    position: absolute;
+} */
 
 .movies__container--image-year {
     display: flex;
@@ -152,6 +157,7 @@ body {
     height: 30px;
     border: white 1px solid;
     border-radius: 5px;
+    position: absolute;
 }
 
 .movies__container--header {
