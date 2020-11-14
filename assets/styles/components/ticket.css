@@ -1,0 +1,80 @@
+.episodes {
+    width: 100%;
+    height: auto;
+}
+
+.episodes__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+}
+
+.episodes__title {
+    color: white;
+}
+
+.episodes__see-more a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+.episodes__see-more i {
+    margin-right: 16px;
+}
+
+.episodes__see-more a:hover {
+    color: #CB134A;
+    transition: all .3s;
+}
+
+.tickets {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.tickets__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.ticket {
+    display: flex;
+    justify-content: space-between;
+    width: 8.75em;
+    height: 5em;
+    margin: 2px;
+    background: white;
+}
+
+.ticket a {
+    display: flex;
+    width: 100%;
+}
+
+.ticket__header {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ticket__number {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ticket__year {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.fa-play-circle {
+    display: flex;
+    justify-content: flex-end;
+}
+
