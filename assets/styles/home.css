@@ -69,20 +69,20 @@ body {
 }
 
 .movies__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
     height: 4em;
 }
 
 .header__movies-row {
-    display: inline-flex;
+    display: flex;
+    width: 100%;
 }
 
 .header__movies-row > .movies__title {
     color: white;
     font-weight: bold;
-    transform: scale(1.2, 1);
 }
 
 .header__movies-row > .movies__see-more a {
