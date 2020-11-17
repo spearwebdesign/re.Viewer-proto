@@ -21,7 +21,7 @@ class Components {
             <li class="card">
                 <a href="#">
                     <figure class="card__figure">
-                        <img class="card__figure--image" src="${image}" alt="" style="width: 100%">
+                        <img class="card__figure--image" src="${image}" alt=""">
                         <span class="card__figure--year">${year}</span>
                     </figure>
                     <header class="card__header">
