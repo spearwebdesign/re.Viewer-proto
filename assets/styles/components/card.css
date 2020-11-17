@@ -1,45 +1,60 @@
-.movies__container--li {
-    color: white;
+.card {
     list-style-type: none;
     font-size: 12px;
-    width: 19em;
-    margin-right: 1em;
+    width: calc(50% - 0.5em);
     margin-bottom: 1em;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
 }
 
-.movies__container--image {
+.card > a {
+    text-decoration: none;
+    color: white;
+}
+
+.card__figure {
     display: flex;
     align-items: flex-end;
-    border: 1px solid white;
+    width: 100%;
     border-radius: 5px;
     position: relative;
 }
 
-.movies__container--image-year {
+.card__figure--image {
+    width: 100%;
+    border-radius: 3px;
+}
+
+.card__figure--year {
     display: flex;
+    font-size: 0.8em;
+    background-color: rgba(48, 48, 48, 0.8);
+    opacity: 0.8;
+    margin: 1em;
+    padding: 0.3em 0.7em;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 30px;
     border: white 1px solid;
-    border-radius: 5px;
+    border-radius: 3px;
     position: absolute;
 }
 
-.movies__container--header {
+.card__header {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
 }
 
-.movies__container--header-title {
-    font-size: 20px;
+.card__title {
+    font-size: 0.8em;
     margin-top: 10px;
     margin-bottom: 10px;
+    word-wrap: break-word;
+    max-width: calc(50vw - 2em);
 }
 
-.movies__container--header-assessment {
-    font-size: 16px;
+.card__assessment {
+    font-size: 0.7em;
     font-weight: bold;
     color: #CB134A;
 }
