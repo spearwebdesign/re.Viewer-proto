@@ -41,17 +41,16 @@
 .tickets__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .ticket {
     list-style: none;
-    width: 19em;
+    width: calc(50% - 0.5em);
     margin-top: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
     border-radius: 8px;
     background: rgb(36, 35, 35);
-    border-bottom: 4px solid;
+    border-bottom: 4px solid black;
 }
 
 .ticket:hover {

@@ -1,0 +1,7 @@
+.navbar__list {
+    list-style: none;
+}
+
+.navbar__list a {
+    text-decoration: none;
+}
