@@ -1,18 +1,19 @@
 .navbar__hidden {
-    visibility: hidden;
-    width: 100%;
-    height: 100%;
-    position: absolute;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 300;
 }
 
 .navbar__list {
     list-style: none;
     background-color: rgb(11, 6, 15, 0.9);
-    position: absolute;
     top: 0px;
     right: 0px;
     bottom: 0px;
-    padding-top: 7em;
+    padding-top: 10em;
     width: 100%;
     height: 100%;
 }
@@ -21,11 +22,21 @@
     text-decoration: none;
 }
 
+.navbar__list a li {
+    padding: 8px;
+    padding-left: .7em;
+    border-left: 3pt solid transparent;
+}
+
+.navbar__list a li:active {
+    border-left: 3pt solid #CB134A;
+}
+
 .fa-times {
-    cursor: pointer;
     position: absolute;
+    cursor: pointer;
     top: 1.9em;
-    left: 1em;
-    z-index: 1;
+    left: 1.7em;
+    z-index: 400;
 }
 

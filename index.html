@@ -21,19 +21,19 @@
 </head>
 
 <body>
+    <div class="navbar__hidden" id="menu" hidden>
+        <i class="fa fa-times" aria-hidden="true" onclick="closeNavbar()"></i>
+        <ul class="navbar__list">
+            <a href=""><li>Inicio</li></a>
+            <a href=""><li>Peliculas</li></a>
+            <a href=""><li>Series</li></a>
+            <a href=""><li>Temporadas</li></a>
+            <a href=""><li>Episodios</li></a>
+        </ul>
+    </div>
     <div class="container">
         <header class="header">
-            <i class="fa fa-bars" onclick="toggleNavbar()"></i>
-            <div class="navbar__hidden" id="menu">
-                <i class="fa fa-times" aria-hidden="true" onclick="toggleNavbar()"></i>
-                <ul class="navbar__list">
-                    <a href=""><li>Inicio</li></a>
-                    <a href=""><li>Peliculas</li></a>
-                    <a href=""><li>Series</li></a>
-                    <a href=""><li>Temporadas</li></a>
-                    <a href=""><li>Episodios</li></a>
-                </ul>
-            </div>
+            <i class="fa fa-bars" onclick="openNavbar()"></i>
         </header>
 
         <div class="main">
