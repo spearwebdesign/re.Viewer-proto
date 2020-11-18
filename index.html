@@ -23,9 +23,9 @@
 <body>
     <div class="container">
         <header class="header">
-            <i class="fa fa-bars" onclick="getNavbar()"></i>
+            <i class="fa fa-bars" onclick="toggleNavbar()"></i>
             <div class="navbar__hidden" id="menu">
-                <i class="fa fa-times" aria-hidden="true"></i>
+                <i class="fa fa-times" aria-hidden="true" onclick="toggleNavbar()"></i>
                 <ul class="navbar__list">
                     <a href=""><li>Inicio</li></a>
                     <a href=""><li>Peliculas</li></a>
@@ -339,6 +339,7 @@
             </footer>
         </div>
     </div>
+    <script src="./js/scripts/hidden-menu.js"></script>
     <script src="./persistence/repository.js"></script>
     <script src="./js/components.js"></script>
     <script src="./controllers/HomeController.js"></script>
