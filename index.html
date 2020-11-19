@@ -14,18 +14,26 @@
     <link rel="stylesheet" href="./assets/styles/home.css">
     <link rel="stylesheet" href="./assets/styles/components/card.css">
     <link rel="stylesheet" href="./assets/styles/components/ticket.css">
+    <link rel="stylesheet" href="./assets/styles/components/hidden-menu.css">
     <!-- OTHERS -->
     <link rel="icon" type="image/png" href="./assets/static/images/favicon.png">
     <title>Cuevana clone</title>
 </head>
 
 <body>
+    <div class="navbar__hidden" id="menu" hidden>
+        <i class="fa fa-times" aria-hidden="true" onclick="closeNavbar()"></i>
+        <ul class="navbar__list">
+            <a href=""><li>Inicio</li></a>
+            <a href=""><li>Peliculas</li></a>
+            <a href=""><li>Series</li></a>
+            <a href=""><li>Temporadas</li></a>
+            <a href=""><li>Episodios</li></a>
+        </ul>
+    </div>
     <div class="container">
         <header class="header">
-            <div class="navbar__hidden">
-                <i class="fa fa-bars"></i>
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </div>
+            <i class="fa fa-bars" onclick="openNavbar()"></i>
         </header>
 
         <div class="main">
@@ -331,6 +339,7 @@
             </footer>
         </div>
     </div>
+    <script src="./js/scripts/hidden-menu.js"></script>
     <script src="./persistence/repository.js"></script>
     <script src="./js/components.js"></script>
     <script src="./controllers/HomeController.js"></script>

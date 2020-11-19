@@ -4,9 +4,9 @@
     font-size: 1.1em;
 }
 
-.navbar__hidden .fa-times {
+/* .navbar__hidden .fa-times {
     visibility: hidden;
-}
+} */
 
 .search__form .search__text {
     display: flex;
