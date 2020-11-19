@@ -58,3 +58,9 @@
     font-weight: bold;
     color: #CB134A;
 }
+
+.card__assessment > span {
+    font-size: 1em;
+    font-weight: bold;
+    color: white
+}

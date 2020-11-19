@@ -1,4 +1,4 @@
-.episodes {
+/* .episodes {
     width: 100%;
     height: auto;
 }
@@ -31,7 +31,7 @@
 .episodes__see-more a:hover {
     color: #CB134A;
     transition: all .3s;
-}
+} */
 
 .tickets {
     display: flex;
