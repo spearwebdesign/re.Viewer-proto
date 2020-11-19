@@ -46,17 +46,17 @@
                     </form>
                 </div>
 
-                <section class="movies">
-                    <header class="movies__header">
-                        <div class="header__movies-row">
-                            <h1 class="movies__title">Peliculas</h1>
-                            <div class="movies__see-more">
+                <section class="section">
+                    <header class="section__header">
+                        <div class="header__section-row">
+                            <h1 class="section__title">Peliculas</h1>
+                            <div class="section__see-more">
                                 <!--typo fixed-->
                                 <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Ver más</a>
                             </div>
                         </div>
 
-                        <div class="movies__most-recent">
+                        <div class="section__most-recent">
                             <a href="#">MAS RECIENTES</a>
                         </div>
                     </header>
@@ -70,19 +70,21 @@
 
                 </section>
 
-                <section class="episodes">
+                <section class="section">
                     <form action="javascript:homeController.getPremiere(premiereYear.value);">
                         <input type="text" id="premiereYear">
                         <button type="submit">ejecutar index</button>
                     </form>
 
-                    <header class="episodes__header">
-
-                        <h1 class="episodes__title">Episodios</h1>
-                        <div class="episodes__see-more">  <!--typo fixed-->
-                            <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Ver más</a>
+                    <header class="section__header">
+                        <div class="header__section-row">
+                            <h1 class="section__title">Episodios</h1>
+                            <div class="section__see-more">
+                                <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Ver más</a>
+                            </div>
                         </div>
 
+                        <div class="section__episodes"></div>
                     </header>
 
                     <div class="tickets">
@@ -235,60 +237,62 @@
 
                 </section>
 
-                <section class="series">
-
-                    <header class="series__header">
-
-                        <h1 class="series__title">Series</h1>
-                        <div class="series__see-more">  <!--typo fixed-->
-                            <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Ver más</a>
+                <section class="section">
+                    <header class="section__header">
+                        <div class="header__section-row">
+                            <h1 class="section__title">Series</h1>
+                            <div class="section__see-more">
+                                <!--typo fixed-->
+                                <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Ver más</a>
+                            </div>
                         </div>
 
+                        <div class="section__most-recent">
+                            <a href="#">MAS RECIENTES</a>
+                        </div>
                     </header>
 
-                    <div class="series__most-recent">
-                        <a href="#">MAS RECIENTES</a>
-                    </div>
 
                     <div class="cards">
-                        <ul class="cards__list" id="movieContainer">
-                            <!-- MOVIE LIST -->
+                        <ul class="cards__list" id="serieContainer">
+                            <!-- SERIE LIST -->
                         </ul>
                     </div>
 
                 </section>
 
-                <section class="seasons">
-
-                    <header class="seasons__header">
-
-                        <h1 class="seasons__title">Temporadas</h1>
-                        <div class="seasons__see-more">  <!--typo fixed-->
-                            <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Ver más</a>
+                <section class="section">
+                    <header class="section__header">
+                        <div class="header__section-row">
+                            <h1 class="section__title">Temporadas</h1>
+                            <div class="section__see-more">
+                                <!--typo fixed-->
+                                <a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Ver más</a>
+                            </div>
                         </div>
 
+                        <div class="section__most-recent">
+                            <a href="#">MAS RECIENTES</a>
+                        </div>
                     </header>
 
-                    <div class="seasons__most-recent">
-                        <a href="#">MAS RECIENTES</a>
-                    </div>
 
                     <div class="cards">
-                        <ul class="cards__list" id="movieContainer">
-                            <!-- MOVIE LIST -->
+                        <ul class="cards__list" id="seasonContainer">
+                            <!-- SEASON LIST -->
                         </ul>
                     </div>
 
                 </section>
 
-                <div class="sidebar">
-                    <section class="popular">
+                <section class="section__explore">
+                    <div class="popular">
 
-                    </section>
-                    <section class="premiere">
+                    </div>
+                    <div class="premiere">
 
-                    </section>
-                </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>

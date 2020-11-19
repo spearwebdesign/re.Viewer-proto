@@ -4,8 +4,8 @@ class Components {
     }
     buildSection(list) {
 
-        let movieContainer = document.createElement('div');
-        let movie = document.createElement('div');
+        let sectionContainer = document.createElement('div');
+        let section = document.createElement('div');
 
         list.forEach(element => {
             let image;
@@ -17,7 +17,7 @@ class Components {
 
             let year = new Date(element.release_date).getFullYear();
 
-            movie.innerHTML = `
+            section.innerHTML = `
             <li class="card">
                 <a href="#">
                     <figure class="card__figure">
@@ -26,19 +26,54 @@ class Components {
                     </figure>
                     <header class="card__header">
                         <h2 class="card__title">${element.original_title}</h2>
-                        <span class="card__assessment">TMDB ${element.popularity}</span>
+                        <span class="card__assessment">TMDB <span>${element.popularity}</span></span>
                     </header>
                 </a>
             </li>
             `;
-            movieContainer.innerHTML += movie.innerHTML;
+            sectionContainer.innerHTML += section.innerHTML;
         });
 
-        return movieContainer.innerHTML;
+        return sectionContainer.innerHTML;
     }
 
     buildEpisodeSection(list) {
         // TODO
+    }
+
+    buildSerieSection(list) {
+
+        let sectionContainer = document.createElement('div');
+        let section = document.createElement('div');
+
+        list.forEach(element => {
+            let image;
+            if (element.poster_path === null) {
+                image = "../assets/static/images/image-not-available.jpg";
+            } else {
+                image = "http://image.tmdb.org/t/p/w300/" + element.poster_path;
+            }
+
+            let year = new Date(element.first_air_date).getFullYear();
+
+            section.innerHTML = `
+            <li class="card">
+                <a href="#">
+                    <figure class="card__figure">
+                        <img class="card__figure--image" src="${image}" alt="${element.original_name}">
+                        <span class="card__figure--year">${year}</span>
+                    </figure>
+                    <header class="card__header">
+                        <h2 class="card__title">${element.original_name}</h2>
+                        <span class="card__assessment">TMDB <span>${element.popularity}</span></span>
+                    </header>
+                </a>
+            </li>
+            `;
+            sectionContainer.innerHTML += section.innerHTML;
+        });
+
+        return sectionContainer.innerHTML;
     }
 }
 

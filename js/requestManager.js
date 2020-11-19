@@ -22,6 +22,7 @@ export default class requestManager {
                 break;
             case 'series':
                 // TODO: getSerie(filters)
+                results = this.getSeries(filters);
                 break;
             default:
                 console.log('Error');
@@ -62,5 +63,25 @@ export default class requestManager {
         // return movies;
         // return 'hi i am in getMovies function';
         // Assigning results to movie model array
+    }
+
+    async getSeries(filters) {
+        let filters_url = '';
+        for (const property in filters) {
+            filters_url += `&${property}=${filters[property]}`
+        }
+
+        let URL = `${API}discover/tv?api_key=${API_KEY}${filters_url}`
+
+        let results = await fetch(URL)
+        .then(response => {
+            return response.json()
+            .then(data => {
+                return data;
+            })
+            .catch(error => console.error(error));
+        });
+        console.log(results);
+        return results;
     }
 }

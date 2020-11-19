@@ -32,6 +32,25 @@ class HomeController {
 
         let movieContainer = document.getElementById('movieContainer');
         movieContainer.innerHTML = components.buildSection(latestMovies);
+
+        filters = {
+            requestTo: 'series',
+            filters: {
+                first_air_date: anioActual.getFullYear(),
+                sort_by: 'first_air_date.desc',
+            }
+        }
+        let latestSeries = await getData('Series', filters);
+        let serieContainer = document.getElementById('serieContainer');
+        serieContainer.innerHTML = components.buildSerieSection(latestSeries);
+
+        // filters = {
+        //     requestTo: 'seasons',
+        //     filters: {
+        //         serie_id: this.latestSeries.id,
+        //         sort_by ''
+        //     }
+        // }
     }
 
     // getPremiere(pY) {
