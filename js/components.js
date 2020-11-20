@@ -2,7 +2,7 @@ class Components {
     constructor() {
 
     }
-    buildSection(list) {
+    buildMovieSection(list) {
 
         let sectionContainer = document.createElement('div');
         let section = document.createElement('div');
@@ -76,6 +76,8 @@ class Components {
         return sectionContainer.innerHTML;
     }
 }
+
+
 
 
 

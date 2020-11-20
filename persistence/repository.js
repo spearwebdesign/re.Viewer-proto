@@ -14,11 +14,11 @@ function storageAvailable(type) {
     }
 }
 
-if (storageAvailable('localStorage')) {
-    console.log('localStorage available')
-} else {
-    console.log('localStorage not available')
-}
+// if (storageAvailable('localStorage')) {
+//     console.log('localStorage available')
+// } else {
+//     console.log('localStorage not available')
+// }
 
 //Save any list in local storage
 function saveLocalStorage(listName, list) {
@@ -30,18 +30,16 @@ async function getData(listName, filters) {
     //Exists in local Storage
     if (localStorage.getItem(listName)) {
         let getList = JSON.parse(localStorage.getItem(listName));
-        console.log(`${listName} obtained from local storage`);
+        // console.log(`${listName} obtained from local storage`);
         return getList;
     } else {
-        // console.log('There are no entries in the local storage');
         let response = await requestManager
             .then(data => {
-                // console.log(new data.default(filters))
                 return new data.default(filters);
             })
             .catch(error => console.log(error));
 
-        console.log(`${listName} obtained from API`);
+        // console.log(`${listName} obtained from API`);
         if (response.results != undefined) {
             saveLocalStorage(listName, response.results);
         }

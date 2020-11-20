@@ -20,6 +20,7 @@ class HomeController {
     async index() {
         let anioActual = new Date();
 
+        // MOVIES REQUEST
         let filters = {
             requestTo: 'movies',
             filters: {
@@ -29,28 +30,45 @@ class HomeController {
         }
 
         let latestMovies = await getData('Movies', filters);
-
         let movieContainer = document.getElementById('movieContainer');
-        movieContainer.innerHTML = components.buildSection(latestMovies);
+        movieContainer.innerHTML = components.buildMovieSection(latestMovies);
 
+        // SERIES REQUEST
         filters = {
             requestTo: 'series',
             filters: {
-                first_air_date: anioActual.getFullYear(),
+                first_air_date_year: anioActual.getFullYear(),
                 sort_by: 'first_air_date.desc',
             }
         }
+
         let latestSeries = await getData('Series', filters);
         let serieContainer = document.getElementById('serieContainer');
         serieContainer.innerHTML = components.buildSerieSection(latestSeries);
 
+        // FOR SPRINT 3
+        // // POPULAR SERIES REQUEST FOR SEASONS REQUEST
+        // filters = {
+        //     requestTo: 'popularSeries',
+        //     // filters: {
+        //     //     sort_by: 'popularity.desc',
+        //     // }
+        // }
+        // let popularSeries = await getData('popularSeries', filters);
+
+        // // SEASONS REQUEST
         // filters = {
         //     requestTo: 'seasons',
         //     filters: {
-        //         serie_id: this.latestSeries.id,
-        //         sort_by ''
+        //         serie_ids: popularSeries.map(serie => serie.id),
+        //         sort_by: 'popularity.desc',
         //     }
         // }
+
+        // let popularSeason = await getData('Seasons', filters);
+        // let seasonContainer = document.getElementById('seasonContainer');
+        // seasonContainer.innerHTML = components.buildSeasonSection(popularSeason);
+
     }
 
     // getPremiere(pY) {
