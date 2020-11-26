@@ -1,16 +1,16 @@
-# Documentation HTML Template
-A Sample HTML Documentation Template for Wordpress Themes, HTML Templates and Plugins. Built with Bootstrap 3. 
+# Documentation/Documentación:
+The documentation it's developed with an HTML Template. Can be viewed here: https://spearwebdesign.github.io/re.viewer.docs/
+La documentación está desarrollada con una plantilla HTML. Puede ser visualizada aquí: https://spearwebdesign.github.io/re.viewer.docs/
 
-## Installation
-Download the package as ZIP and edit the HTML and CSS as you like.
+## Installation/Instalación:
+Web page that communicates with an API. Doesn't nedd to be installed.
 
 ## Demo
-Click this link for a live demo : http://surjithctly.github.io/documentation-html-template/
-
-## Donations & Support
-My Brain needs two urgent coffee to continue working. Buy me a coffee or two here: https://opencollective.com/documentation-template
+For a correct visualization of the web page, reduce the size of the browser or visualize it on a mobile device since the desktop view is in develop.
+Can se the web here: 
+Para una correcta visualización de la pagina web, reduzca el tamaño del navegador o visualicela en un dispositivo móvil ya que la vista para escritorio se en desarrollo.
+Puede ver la web aquí:
 
 ## Credits
-This is a modified version of [Template Visual's](http://themeforest.net/user/templatevisual?ref=surjithctly&utm_source=github_surjithctly_docs) Documentation : Actual Documentation Link : http://goo.gl/RVwdHE
-
-Browser Testing by [Browserstack](https://www.browserstack.com/)
+José María Lanza
+Gabriel Augusto Rotger
