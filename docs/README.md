@@ -7,9 +7,9 @@ Web page that communicates with an API. Doesn't nedd to be installed.
 
 ## Demo
 For a correct visualization of the web page, reduce the size of the browser or visualize it on a mobile device since the desktop view is in develop.
-Can se the web here: 
+Can se the web here: https://spearwebdesign.github.io/re.Viewer-proto/.
 Para una correcta visualización de la pagina web, reduzca el tamaño del navegador o visualicela en un dispositivo móvil ya que la vista para escritorio se en desarrollo.
-Puede ver la web aquí:
+Puede ver la web aquí: https://spearwebdesign.github.io/re.Viewer-proto/.
 
 ## Credits
 José María Lanza
