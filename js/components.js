@@ -38,8 +38,33 @@ class Components {
     }
 
     buildEpisodeSection(list) {
-        // TODO
+        let sectionContainer = document.createElement('div');
+        let section = document.createElement('div');
+
+        list.forEach(element => {
+            
+            let year = new Date(element.release_date).getFullYear();
+
+            section.innerHTML = `
+            <li class="ticket">
+                <a href="#">
+                    <header class="ticket__header">
+                        <div class="ticket__number">${element.popularity}</div>
+                        <h2 class="ticket__title">${element.original_name}</h2>
+                    </header>
+                    <div class="ticket__div">
+                        <div class="ticket__year">${year}</div>
+                        <i class="fa fa-play-circle" aria-hidden="true"></i>
+                    </div>
+                </a>
+            </li>
+            `;
+            sectionContainer.innerHTML += section.innerHTML;
+        });
+
+        return sectionContainer.innerHTML;
     }
+
 
     buildSerieSection(list) {
 

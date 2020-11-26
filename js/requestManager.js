@@ -54,6 +54,26 @@ export default class requestManager {
         return results;
     }
 
+    async getEpisodes(filters) {
+        let filters_url = '';
+        for (const property in filters) {
+            filters_url += `&${property}=${filters[property]}`
+        }
+
+        let URL = `${API}discover/tv?api_key=${API_KEY}${filters_url}&language=en-US&sort_by=first_air_date.desc`
+
+        let results = await fetch(URL)
+            .then(response => {
+                return response.json()
+                    .then(data => {
+                        return data;
+                    })
+                    .catch(error => console.error(error));
+            });
+        return results;
+    }
+
+
     async getSeries(filters) {
         let filters_url = '';
         for (const property in filters) {
