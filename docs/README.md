@@ -12,5 +12,5 @@ Para una correcta visualización de la pagina web, reduzca el tamaño del navega
 Puede ver la web aquí: https://spearwebdesign.github.io/re.Viewer-proto/.
 
 ## Credits
-José María Lanza
+José María Lanza,
 Gabriel Augusto Rotger
