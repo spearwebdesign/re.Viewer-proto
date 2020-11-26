@@ -24,12 +24,13 @@ class HomeController {
         let filters = {
             requestTo: 'movies',
             filters: {
+                page: 3,
                 primary_release_year: anioActual.getFullYear(),
                 sort_by: 'release_date.desc',
             }
         }
 
-        let latestMovies = await getData('Movies', filters);
+        let latestMovies = await getData(`Movies ${filters.filters.page}`, filters);
         let movieContainer = document.getElementById('movieContainer');
         movieContainer.innerHTML = components.buildMovieSection(latestMovies);
 

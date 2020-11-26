@@ -51,7 +51,6 @@ export default class requestManager {
                     })
                     .catch(error => console.error(error));
             });
-
         return results;
     }
 

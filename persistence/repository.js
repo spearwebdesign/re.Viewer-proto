@@ -21,7 +21,8 @@ function storageAvailable(type) {
 // }
 
 //Save any list in local storage
-function saveLocalStorage(listName, list) {
+function saveList(listName, list) {
+    // list is an object array
     localStorage.setItem(listName, JSON.stringify(list));
 }
 
