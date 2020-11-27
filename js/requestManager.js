@@ -5,6 +5,7 @@ const API_KEY = '21715e4fd28b56a724172e0ec055c73f';
 
 export default class requestManager {
     constructor(props) {
+        this.props = props;
         this.requestTo = props.requestTo;
         this.filters = props.filters;
         return this.processRequest(this.requestTo, this.filters);
@@ -26,7 +27,7 @@ export default class requestManager {
                 results = this.getPopular();
                 break;
             case 'seasons':
-                results = this.getSeasons(filters);
+                results = this.getSeasons(this.props);
                 break;
             default:
                 console.log('Error');
@@ -89,19 +90,26 @@ export default class requestManager {
         return results;
     }
 
-    async getSeasons(filters) {
-        let filters_url = '';
-        for (const property in filters) {
-            filters_url += `&${property}=${filters[property]}`
-        }
+    async getSeasons(props) {
+        let results;
+        props.filters.serie_ids.forEach(element => {
+            
+        console.log(element);
+
+
+        // let filters_url = '';
+        // for (const property in filters) {
+        //     filters_url += `&${property}=${filters[property]}`
+        // }
 
         // Trae la SERIE -> cantidad de temporadas
-        let URL = `${API}/tv/?api_key=${API_KEY}${filters_url}`
+        let URL = `${API}tv/${element}?api_key=${API_KEY}&language=en-US`;
+        console.log(URL);
 
         // /tv/{tv_id}/season/{season_number}
         // Temporada entera
 
-        let results = await fetch(URL)
+        results = await fetch(URL)
             .then(response => {
                 return response.json()
                     .then(data => {
@@ -109,6 +117,9 @@ export default class requestManager {
                     })
                     .catch(error => console.error(error));
             });
+
+        });
+        console.log(results);
 
         return results;
     }

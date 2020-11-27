@@ -10,7 +10,7 @@ class Components {
         list.forEach(element => {
             let image;
             if (element.poster_path === null) {
-                image = "../assets/static/images/image-not-available.jpg";
+                image = "./assets/static/images/image-not-available.jpg";
             } else {
                 image = "http://image.tmdb.org/t/p/w300/" + element.poster_path;
             }
@@ -42,6 +42,41 @@ class Components {
     }
 
     buildSerieSection(list) {
+
+        let sectionContainer = document.createElement('div');
+        let section = document.createElement('div');
+
+        list.forEach(element => {
+            let image;
+            if (element.poster_path === null) {
+                image = "../assets/static/images/image-not-available.jpg";
+            } else {
+                image = "http://image.tmdb.org/t/p/w300/" + element.poster_path;
+            }
+
+            let year = new Date(element.first_air_date).getFullYear();
+
+            section.innerHTML = `
+            <li class="card">
+                <a href="#">
+                    <figure class="card__figure">
+                        <img class="card__figure--image" src="${image}" alt="${element.original_name}">
+                        <span class="card__figure--year">${year}</span>
+                    </figure>
+                    <header class="card__header">
+                        <h2 class="card__title">${element.original_name}</h2>
+                        <span class="card__assessment">TMDB <span>${element.popularity}</span></span>
+                    </header>
+                </a>
+            </li>
+            `;
+            sectionContainer.innerHTML += section.innerHTML;
+        });
+
+        return sectionContainer.innerHTML;
+    }
+
+    buildSeasonSection(list) { // TODO
 
         let sectionContainer = document.createElement('div');
         let section = document.createElement('div');
