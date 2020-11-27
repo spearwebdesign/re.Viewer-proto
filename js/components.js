@@ -38,6 +38,7 @@ class Components {
     }
 
     buildEpisodeSection(list) {
+        
         let sectionContainer = document.createElement('div');
         let section = document.createElement('div');
 

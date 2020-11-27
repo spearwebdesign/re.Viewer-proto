@@ -35,18 +35,17 @@ class HomeController {
         moviesContainer.innerHTML = components.buildMovieSection(latestMovies);
 
         //EPISODES REQUEST
-        let filters = {
-            requestTo: 'episodes',
-            filters: {
-                page: 1,
-                primary_release_year: anioActual.getFullYear(),
-                sort_by: 'first_air_date.desc',
-            }
-        }
+        // filters = {
+        //     requestTo: 'episodes',
+        //     filters: {
+        //         first_air_date_year: anioActual.getFullYear(),
+        //         sort_by: 'first_air_date.desc',
+        //     }
+        // }
 
-        let latestMovies = await getData('Episodes', filters);
+        let latestEpisodes = await getData('Episodes', filters);
         let episodesContainer = document.getElementById('episodesContainer');
-        episodesContainer.innerHTML = components.buildEpisodeSection(latestMovies);
+        episodesContainer.innerHTML = components.buildEpisodeSection(latestEpisodes)
 
         // SERIES REQUEST
         filters = {
