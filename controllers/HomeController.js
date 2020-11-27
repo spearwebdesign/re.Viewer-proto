@@ -34,19 +34,6 @@ class HomeController {
         let moviesContainer = document.getElementById('moviesContainer');
         moviesContainer.innerHTML = components.buildMovieSection(latestMovies);
 
-        //EPISODES REQUEST
-        // filters = {
-        //     requestTo: 'episodes',
-        //     filters: {
-        //         first_air_date_year: anioActual.getFullYear(),
-        //         sort_by: 'first_air_date.desc',
-        //     }
-        // }
-
-        let latestEpisodes = await getData('Episodes', filters);
-        let episodesContainer = document.getElementById('episodesContainer');
-        episodesContainer.innerHTML = components.buildEpisodeSection(latestEpisodes)
-
         // SERIES REQUEST
         filters = {
             requestTo: 'series',
@@ -59,6 +46,21 @@ class HomeController {
         let latestSeries = await getData('Series', filters);
         let seriesContainer = document.getElementById('seriesContainer');
         seriesContainer.innerHTML = components.buildSerieSection(latestSeries);
+
+        //EPISODES REQUEST
+        filters = {
+            requestTo: 'episodes',
+            filters: {
+                episode_ids: latestSeries.map(results => results.id),
+                sort_by: 'first_air_date.desc',
+            }
+        }
+        console.log(filters)
+        // let ids = latestSeries.slice(0).map(results => results.id)
+        // console.log(ids)
+        let latestEpisodes = await getData('Episodes', filters);
+        let episodesContainer = document.getElementById('episodesContainer');
+        episodesContainer.innerHTML = components.buildEpisodeSection(latestEpisodes)
 
         // FOR SPRINT 3
         // // POPULAR SERIES REQUEST FOR SEASONS REQUEST

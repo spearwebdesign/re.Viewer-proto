@@ -44,7 +44,7 @@ class Components {
 
         list.forEach(element => {
             
-            let year = new Date(element.release_date).getFullYear();
+            let year = new Date(element.first_air_date).getFullYear();
 
             section.innerHTML = `
             <li class="ticket">

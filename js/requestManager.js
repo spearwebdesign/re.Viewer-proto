@@ -60,8 +60,7 @@ export default class requestManager {
             filters_url += `&${property}=${filters[property]}`
         }
 
-        let URL = `${API}discover/tv?api_key=${API_KEY}${filters_url}`
-
+        let URL = `${API}/tv/${id}/season/{season_number}/episode/{episode_number}?api_key=${API_KEY}&language=en-US`
         let results = await fetch(URL)
             .then(response => {
                 return response.json()
