@@ -10,7 +10,7 @@ class Components {
         list.forEach(element => {
             let image;
             if (element.poster_path === null) {
-                image = "../assets/static/images/image-not-available.jpg";
+                image = "./assets/static/images/image-not-available.jpg";
             } else {
                 image = "http://image.tmdb.org/t/p/w300/" + element.poster_path;
             }
@@ -75,7 +75,7 @@ class Components {
         list.forEach(element => {
             let image;
             if (element.poster_path === null) {
-                image = "../assets/static/images/image-not-available.jpg";
+                image = "./assets/static/images/image-not-available.jpg";
             } else {
                 image = "http://image.tmdb.org/t/p/w300/" + element.poster_path;
             }
