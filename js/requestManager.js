@@ -55,6 +55,7 @@ export default class requestManager {
         return results;
     }
 
+    // LATEST SERIES
     async getSeries(filters) {
         let filters_url = '';
         for (const property in filters) {
@@ -75,6 +76,7 @@ export default class requestManager {
         return results;
     }
 
+    // POPULAR SERIES
     async getPopular() {
         let URL = `${API}tv/popular?api_key=${API_KEY}&language=en-US&page=1`
 
@@ -90,37 +92,47 @@ export default class requestManager {
         return results;
     }
 
-    async getSeasons(props) {
-        let results;
-        props.filters.serie_ids.forEach(element => {
-            
-        console.log(element);
+    // SERIE ID
+    async getSerie(id) {
+        let URL = `${API}tv/${id}?api_key=${API_KEY}&language=en-US`;
 
+        let results = await fetch(URL)
+            .then(response => response.json()
+                .then(data => {
+                    return data;
+                })
+                .catch(error => console.error(error))
+            );
+        return results;
+    }
 
-        // let filters_url = '';
-        // for (const property in filters) {
-        //     filters_url += `&${property}=${filters[property]}`
-        // }
+    getSeasons(props) {
+        let series = [];
+        let seasons = [];
+        props.filters.serie_ids.forEach(id => {
 
-        // Trae la SERIE -> cantidad de temporadas
-        let URL = `${API}tv/${element}?api_key=${API_KEY}&language=en-US`;
-        console.log(URL);
-
-        // /tv/{tv_id}/season/{season_number}
-        // Temporada entera
-
-        results = await fetch(URL)
-            .then(response => {
-                return response.json()
-                    .then(data => {
-                        return data;
-                    })
-                    .catch(error => console.error(error));
-            });
+            this.getSerie(id)
+                .then(serie => {
+                    // last Season
+                    let URL = `${API}tv/${id}/season/${serie.last_episode_to_air.season_number}?api_key=${API_KEY}`;
+                    fetch(URL)
+                        .then(response => response.json()
+                            .then(season => {
+                                seasons.push(season);
+                            })
+                            .catch(error => console.error(error))
+                        )
+                    series.push(serie);
+                })
 
         });
-        console.log(results);
 
-        return results;
+        let results = {
+            series: series,
+            seasons: seasons,
+        }
+
+        console.log(results);
+        return results; // seasons
     }
 }
