@@ -6,6 +6,13 @@
     padding-left: 0.25em;
     padding-right: 0.25em;
 }
+.card:hover {
+    background-color: rgb(0, 0, 0, 0.0);
+}
+.card__figure--image:hover {
+    opacity: 0.2;
+    transition: all 0.4s;
+}
 
 .card > a {
     text-decoration: none;

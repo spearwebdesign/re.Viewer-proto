@@ -31,6 +31,9 @@
 .navbar__list a li:active {
     border-left: 3pt solid #CB134A;
 }
+.navbar__list a li:hover {
+    color: rgb(187, 184, 184);
+}
 
 .fa-times {
     position: absolute;

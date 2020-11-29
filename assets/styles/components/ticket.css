@@ -61,6 +61,7 @@
 
 .ticket:hover .fa-play-circle::before {
     color: #CB134A;
+    transition: all .5s;
 }
 
 .ticket a {
@@ -80,10 +81,12 @@
     justify-content: flex-start;
     padding: 15px;
     color: #CB134A;
-    font-weight: bold;
+    font-size: 0.7em;
 }
 
 .ticket__title {
+    font-size: 0.7em;
+    font-weight: bold;
     display: flex;
     justify-content: flex-start;
     padding-top: 15px;

@@ -20,7 +20,7 @@ export default class requestManager {
                 results = this.getSeries(filters);
                 break;
             case 'episodes':
-                // TODO req episodes
+                results = this.getEpisodes(filters);
                 break;
             case 'popularSeries':
                 results = this.getPopular();
@@ -42,25 +42,25 @@ export default class requestManager {
         }
 
         let URL = `${API}discover/movie?api_key=${API_KEY}${filters_url}`
-
+        
         let results = await fetch(URL)
-            .then(response => {
-                return response.json()
-                    .then(data => {
-                        return data;
-                    })
-                    .catch(error => console.error(error));
-            });
-        return results;
+            .then(response => response.json())
+            .then(data => data)
+            .catch(error => console.error(error)); 
+                    
+            return results;
     }
 
     async getEpisodes(filters) {
-        let filters_url = '';
-        for (const property in filters) {
-            filters_url += `&${property}=${filters[property]}`
-        }
+        // let filters_url = '';
+        // for (const property in filters) {
+        //     filters_url+= `&${property}=${filters[property]}`
+        // }
+        
 
-        let URL = `${API}/tv/${id}/season/{season_number}/episode/{episode_number}?api_key=${API_KEY}&language=en-US`
+        // let URL = `${API}/tv/${filters_url.filters}/season/${season_number}?api_key=${API_KEY}&language=en-US`
+        let URL = `${API}tv/popular?api_key=${API_KEY}&language=en-US&page=1`
+
         let results = await fetch(URL)
             .then(response => {
                 return response.json()
@@ -131,4 +131,18 @@ export default class requestManager {
 
         return results;
     }
+
+    getEpisode(props) {
+        let episodes = [];
+
+        props.filters.episode_ids.forEach(id => {
+
+            this.getSerie(id)
+            .then(response => {
+                episodes.push(response);
+            });
+        });
+        return results;
+    }
+
 }

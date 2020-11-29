@@ -55,9 +55,8 @@ class HomeController {
                 sort_by: 'first_air_date.desc',
             }
         }
-        console.log(filters)
-        // let ids = latestSeries.slice(0).map(results => results.id)
-        // console.log(ids)
+        // console.log(filters.filters.episode_ids)
+        
         let latestEpisodes = await getData('Episodes', filters);
         let episodesContainer = document.getElementById('episodesContainer');
         episodesContainer.innerHTML = components.buildEpisodeSection(latestEpisodes)

@@ -26,7 +26,7 @@ class Components {
                     </figure>
                     <header class="card__header">
                         <h2 class="card__title">${element.original_title}</h2>
-                        <span class="card__assessment">TMDB <span>${element.popularity}</span></span>
+                        <span class="card__assessment">TMDB <span>${(element.popularity).toFixed(1)}</span></span>
                     </header>
                 </a>
             </li>
@@ -50,7 +50,7 @@ class Components {
             <li class="ticket">
                 <a href="#">
                     <header class="ticket__header">
-                        <div class="ticket__number">${element.popularity}</div>
+                        <div class="ticket__number">${(element.popularity).toFixed(1)}</div>
                         <h2 class="ticket__title">${element.original_name}</h2>
                     </header>
                     <div class="ticket__div">
@@ -91,7 +91,7 @@ class Components {
                     </figure>
                     <header class="card__header">
                         <h2 class="card__title">${element.original_name}</h2>
-                        <span class="card__assessment">TMDB <span>${element.popularity}</span></span>
+                        <span class="card__assessment">TMDB <span>${(element.popularity).toFixed(1)}</span></span>
                     </header>
                 </a>
             </li>
