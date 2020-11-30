@@ -21,21 +21,21 @@ class HomeController {
         let anioActual = new Date();
 
         // MOVIES REQUEST
-        let filters = {
+        let request = {
             requestTo: 'movies',
             filters: {
-                page: 3,
+                page: 1,
                 primary_release_year: anioActual.getFullYear(),
                 sort_by: 'release_date.desc',
             }
         }
 
-        let latestMovies = await getData(`Movies ${filters.filters.page}`, filters);
+        let latestMovies = await getData(`Movies ${request.filters.page}`, request);
         let moviesContainer = document.getElementById('moviesContainer');
         moviesContainer.innerHTML = components.buildMovieSection(latestMovies);
 
         // SERIES REQUEST
-        filters = {
+        request = {
             requestTo: 'series',
             filters: {
                 first_air_date_year: anioActual.getFullYear(),
@@ -43,46 +43,46 @@ class HomeController {
             }
         }
 
-        let latestSeries = await getData('Series', filters);
+        let latestSeries = await getData('Series', request);
         let seriesContainer = document.getElementById('seriesContainer');
         seriesContainer.innerHTML = components.buildSerieSection(latestSeries);
 
         //EPISODES REQUEST
-        filters = {
+        request = {
             requestTo: 'episodes',
             filters: {
-                episode_ids: latestSeries.map(results => results.id),
+                episode_ids: latestSeries.map(serie => serie.id),
                 sort_by: 'first_air_date.desc',
             }
         }
         // console.log(filters.filters.episode_ids)
-        
-        let latestEpisodes = await getData('Episodes', filters);
+
+        let latestEpisodes = await getData('Episodes', request);
         let episodesContainer = document.getElementById('episodesContainer');
         episodesContainer.innerHTML = components.buildEpisodeSection(latestEpisodes)
 
         // FOR SPRINT 3
-        // // POPULAR SERIES REQUEST FOR SEASONS REQUEST
-        // filters = {
-        //     requestTo: 'popularSeries',
-        //     // filters: {
-        //     //     sort_by: 'popularity.desc',
-        //     // }
-        // }
-        // let popularSeries = await getData('popularSeries', filters);
+        // POPULAR SERIES REQUEST FOR SEASONS REQUEST
+        request = {
+            requestTo: 'popularSeries',
+            // filters: {
+            //     sort_by: 'popularity.desc',
+            // }
+        }
+        let popularSeries = await getData('popularSeries', request);
 
-        // // SEASONS REQUEST
-        // filters = {
-        //     requestTo: 'seasons',
-        //     filters: {
-        //         serie_ids: popularSeries.map(serie => serie.id),
-        //         sort_by: 'popularity.desc',
-        //     }
-        // }
+        // SEASONS REQUEST
+        request = {
+            requestTo: 'seasons',
+            filters: {
+                serie_ids: popularSeries.map(serie => serie.id),
+                sort_by: 'popularity.desc',
+            }
+        }
 
-        // let popularSeason = await getData('Seasons', filters);
-        // let seasonContainer = document.getElementById('seasonContainer');
-        // seasonContainer.innerHTML = components.buildSeasonSection(popularSeason);
+        let popularSeason = await getData('Seasons', request);
+        let seasonContainer = document.getElementById('seasonsContainer');
+        seasonContainer.innerHTML = components.buildSeasonSection(popularSeason);
 
     }
 

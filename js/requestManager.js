@@ -5,6 +5,7 @@ const API_KEY = '21715e4fd28b56a724172e0ec055c73f';
 
 export default class requestManager {
     constructor(props) {
+        this.props = props;
         this.requestTo = props.requestTo;
         this.filters = props.filters;
         return this.processRequest(this.requestTo, this.filters);
@@ -26,7 +27,7 @@ export default class requestManager {
                 results = this.getPopular();
                 break;
             case 'seasons':
-                results = this.getSeasons(filters);
+                results = this.getSeasons(this.props);
                 break;
             default:
                 console.log('Error');
@@ -72,7 +73,7 @@ export default class requestManager {
         return results;
     }
 
-
+    // LATEST SERIES
     async getSeries(filters) {
         let filters_url = '';
         for (const property in filters) {
@@ -93,6 +94,7 @@ export default class requestManager {
         return results;
     }
 
+    // POPULAR SERIES
     async getPopular() {
         let URL = `${API}tv/popular?api_key=${API_KEY}&language=en-US&page=1`
 
@@ -108,27 +110,17 @@ export default class requestManager {
         return results;
     }
 
-    async getSeasons(filters) {
-        let filters_url = '';
-        for (const property in filters) {
-            filters_url += `&${property}=${filters[property]}`
-        }
-
-        // Trae la SERIE -> cantidad de temporadas
-        let URL = `${API}/tv/?api_key=${API_KEY}${filters_url}`
-
-        // /tv/{tv_id}/season/{season_number}
-        // Temporada entera
+    // SERIE ID
+    async getSerie(id) {
+        let URL = `${API}tv/${id}?api_key=${API_KEY}&language=en-US`;
 
         let results = await fetch(URL)
-            .then(response => {
-                return response.json()
-                    .then(data => {
-                        return data;
-                    })
-                    .catch(error => console.error(error));
-            });
-
+            .then(response => response.json()
+                .then(data => {
+                    return data;
+                })
+                .catch(error => console.error(error))
+            );
         return results;
     }
 
@@ -145,4 +137,33 @@ export default class requestManager {
         return results;
     }
 
+    getSeasons(props) {
+        let series = [];
+        let seasons = [];
+        props.filters.serie_ids.forEach(id => {
+
+            this.getSerie(id)
+                .then(serie => {
+                    // last Season
+                    let URL = `${API}tv/${id}/season/${serie.last_episode_to_air.season_number}?api_key=${API_KEY}`;
+                    fetch(URL)
+                        .then(response => response.json()
+                            .then(season => {
+                                seasons.push(season);
+                            })
+                            .catch(error => console.error(error))
+                        )
+                    series.push(serie);
+                })
+
+        });
+
+        let results = {
+            series: series,
+            seasons: seasons,
+        }
+
+        console.log(results);
+        return results; // seasons
+    }
 }

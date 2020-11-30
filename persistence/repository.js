@@ -27,23 +27,23 @@ function saveList(listName, list) {
 }
 
 //Get any list from localStorage
-async function getData(listName, filters) {
+async function getData(listName, request) {
     //Exists in local Storage
     if (localStorage.getItem(listName)) {
-        let getList = JSON.parse(localStorage.getItem(listName));
         // console.log(`${listName} obtained from local storage`);
+        let getList = JSON.parse(localStorage.getItem(listName));
         return getList;
     } else {
         let response = await requestManager
             .then(data => {
-                return new data.default(filters);
+                return new data.default(request);
             })
-            .catch(error => console.log(error));
+            .catch(error => console.error(error));
 
         // console.log(`${listName} obtained from API`);
         if (response.results != undefined) {
             saveList(listName, response.results);
         }
-        return response.results
+        return response.results;
     }
 }
