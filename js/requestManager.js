@@ -34,6 +34,16 @@ export default class requestManager {
         }
 
         return results;
+        // // console.log(results);
+        // if (typeof(results) == Array(Promise)) {
+        //     results.forEach(result => {
+        //         console.log(result);
+        //         return result;
+        //     });
+        // } else {
+        //     return results;
+        // }
+
     }
 
     async getMovies(filters) {
@@ -43,13 +53,12 @@ export default class requestManager {
         }
 
         let URL = `${API}discover/movie?api_key=${API_KEY}${filters_url}`
-        
+
         let results = await fetch(URL)
             .then(response => response.json())
             .then(data => data)
-            .catch(error => console.error(error)); 
-                    
-            return results;
+            .catch(error => console.error(error));
+        return results;
     }
 
     async getEpisodes(filters) {
@@ -57,7 +66,7 @@ export default class requestManager {
         // for (const property in filters) {
         //     filters_url+= `&${property}=${filters[property]}`
         // }
-        
+
 
         // let URL = `${API}/tv/${filters_url.filters}/season/${season_number}?api_key=${API_KEY}&language=en-US`
         let URL = `${API}tv/popular?api_key=${API_KEY}&language=en-US&page=1`
@@ -106,7 +115,6 @@ export default class requestManager {
                     })
                     .catch(error => console.error(error));
             });
-
         return results;
     }
 
@@ -115,55 +123,108 @@ export default class requestManager {
         let URL = `${API}tv/${id}?api_key=${API_KEY}&language=en-US`;
 
         let results = await fetch(URL)
-            .then(response => response.json()
-                .then(data => {
-                    return data;
-                })
-                .catch(error => console.error(error))
-            );
+            .then(response => response.json())
+            .catch(err => console.error(err));
         return results;
     }
 
-    getEpisode(props) {
-        let episodes = [];
+    async getSeason(id, season_number) {
+        let URL = `${API}tv/${id}/season/${season_number}?api_key=${API_KEY}`;
 
-        props.filters.episode_ids.forEach(id => {
-
-            this.getSerie(id)
-            .then(response => {
-                episodes.push(response);
-            });
-        });
+        let results = await fetch(URL)
+            .then(response => response.json())
+            .catch(err => console.error(err));
         return results;
     }
 
-    getSeasons(props) {
-        let series = [];
-        let seasons = [];
-        props.filters.serie_ids.forEach(id => {
+    async getSeasons(props) {
 
+        let seasons = {
+            results: []
+        }
+        seasons.results = await Promise.all(props.filters.serie_ids.map(id =>
             this.getSerie(id)
                 .then(serie => {
-                    // last Season
-                    let URL = `${API}tv/${id}/season/${serie.last_episode_to_air.season_number}?api_key=${API_KEY}`;
-                    fetch(URL)
-                        .then(response => response.json()
-                            .then(season => {
-                                seasons.push(season);
-                            })
-                            .catch(error => console.error(error))
-                        )
-                    series.push(serie);
+                    return this.getSeason(serie.id, serie.last_episode_to_air.season_number)
+                        .then(season => {
+                            season.serie_name = serie.name;
+                            return season;
+                        })
                 })
-
-        });
-
-        let results = {
-            series: series,
-            seasons: seasons,
-        }
-
-        console.log(results);
-        return results; // seasons
+        ));
+        return seasons;
     }
+
+    // async getSeasons(props) {
+
+    //     let results = [];
+    //     props.filters.serie_ids.forEach(id => {
+    //         this.getSerie(id)
+    //             .then(async serie => {
+    //                 let seasons = this.getSeason(serie.id, serie.last_episode_to_air.season_number)
+    //                     .then(season => {
+    //                         season.serie_name = serie.name;
+    //                         return season;
+    //                     })
+    //                 results.push(seasons);
+    //             })
+    //     });
+    //     console.log(results);
+    //     return results;
+    // }
+
+    // async getSeasons(props) {
+
+    //     // let results = Object();
+    //     // let popular = await this.getPopular();
+    //     let results = Array();
+    //     // console.log(popular.results);
+    //     // popular.results.forEach(async element => {
+    //     props.filters.serie_ids.forEach(async id => {
+    //         this.getSerie(id)
+    //             .then(async serie => {
+
+    //                 let URL = `${API}tv/${serie.id}/season/${serie.last_episode_to_air.season_number}?api_key=${API_KEY}`;
+    //                 let season = await fetch(URL)
+    //                     .then(response => response.json())
+    //                     .catch(error => console.error(error))
+    //                 season.serie_name = serie.name;
+    //                 // console.log(season);
+    //                 results.push(season);
+    //             })
+    //     })
+    //     console.log(results);
+
+    //     return results;
+    // }
+
+    // getSeasons(props) {
+    //     let series = [];
+    //     let seasons = [];
+    //     props.filters.serie_ids.forEach(id => {
+
+    //         this.getSerie(id)
+    //             .then(serie => {
+    //                 // last Season
+    //                 let URL = `${API}tv/${id}/season/${serie.last_episode_to_air.season_number}?api_key=${API_KEY}`;
+    //                 fetch(URL)
+    //                     .then(response => response.json()
+    //                         .then(season => {
+    //                             seasons.push(season);
+    //                         })
+    //                         .catch(error => console.error(error))
+    //                     )
+    //                 series.push(serie);
+    //             })
+
+    //     });
+
+    //     let results = {
+    //         series: series,
+    //         seasons: seasons,
+    //     }
+
+    //     // console.log(results);
+    //     return results; // seasons
+    // }
 }

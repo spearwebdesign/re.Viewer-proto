@@ -30,20 +30,21 @@ function saveList(listName, list) {
 async function getData(listName, request) {
     //Exists in local Storage
     if (localStorage.getItem(listName)) {
-        // console.log(`${listName} obtained from local storage`);
+        console.log(`${listName} obtained from local storage`);
         let getList = JSON.parse(localStorage.getItem(listName));
         return getList;
     } else {
         let response = await requestManager
             .then(data => {
+                // console.log(new data.default(request))
                 return new data.default(request);
             })
             .catch(error => console.error(error));
 
-        // console.log(`${listName} obtained from API`);
+        console.log(`${listName} obtained from API`);
         if (response.results != undefined) {
             saveList(listName, response.results);
         }
-        return response.results;
+        return response;
     }
 }

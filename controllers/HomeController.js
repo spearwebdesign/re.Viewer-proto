@@ -32,7 +32,7 @@ class HomeController {
 
         let latestMovies = await getData(`Movies ${request.filters.page}`, request);
         let moviesContainer = document.getElementById('moviesContainer');
-        moviesContainer.innerHTML = components.buildMovieSection(latestMovies);
+        moviesContainer.innerHTML = components.buildMovieSection(latestMovies.results);
 
         // SERIES REQUEST
         request = {
@@ -45,13 +45,13 @@ class HomeController {
 
         let latestSeries = await getData('Series', request);
         let seriesContainer = document.getElementById('seriesContainer');
-        seriesContainer.innerHTML = components.buildSerieSection(latestSeries);
+        seriesContainer.innerHTML = components.buildSerieSection(latestSeries.results);
 
         //EPISODES REQUEST
         request = {
             requestTo: 'episodes',
             filters: {
-                episode_ids: latestSeries.map(serie => serie.id),
+                episode_ids: latestSeries.results.map(serie => serie.id),
                 sort_by: 'first_air_date.desc',
             }
         }
@@ -59,7 +59,7 @@ class HomeController {
 
         let latestEpisodes = await getData('Episodes', request);
         let episodesContainer = document.getElementById('episodesContainer');
-        episodesContainer.innerHTML = components.buildEpisodeSection(latestEpisodes)
+        episodesContainer.innerHTML = components.buildEpisodeSection(latestEpisodes.results)
 
         // FOR SPRINT 3
         // POPULAR SERIES REQUEST FOR SEASONS REQUEST
@@ -75,14 +75,14 @@ class HomeController {
         request = {
             requestTo: 'seasons',
             filters: {
-                serie_ids: popularSeries.map(serie => serie.id),
+                serie_ids: popularSeries.results.map(serie => serie.id),
                 sort_by: 'popularity.desc',
             }
         }
 
-        let popularSeason = await getData('Seasons', request);
+        let popularSeasons = await getData('Seasons', request);
         let seasonContainer = document.getElementById('seasonsContainer');
-        seasonContainer.innerHTML = components.buildSeasonSection(popularSeason);
+        seasonContainer.innerHTML = components.buildSeasonSection(popularSeasons.results);
 
     }
 
