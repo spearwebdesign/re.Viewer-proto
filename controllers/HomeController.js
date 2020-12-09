@@ -55,19 +55,14 @@ class HomeController {
                 sort_by: 'first_air_date.desc',
             }
         }
-        // console.log(filters.filters.episode_ids)
 
         let latestEpisodes = await getData('Episodes', request);
         let episodesContainer = document.getElementById('episodesContainer');
         episodesContainer.innerHTML = components.buildEpisodeSection(latestEpisodes.results)
 
-        // FOR SPRINT 3
         // POPULAR SERIES REQUEST FOR SEASONS REQUEST
         request = {
-            requestTo: 'popularSeries',
-            // filters: {
-            //     sort_by: 'popularity.desc',
-            // }
+            requestTo: 'popularSeries'
         }
         let popularSeries = await getData('popularSeries', request);
 

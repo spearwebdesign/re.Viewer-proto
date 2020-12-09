@@ -139,56 +139,6 @@ class Components {
 
         return sectionContainer.innerHTML;
     }
-
-    // buildSeasonSection(list) { // TODO
-    //     let seasons = Array(list.seasons);
-    //     let series = Array(list.series);
-
-    //     let sectionContainer = document.createElement('div');
-    //     let section = document.createElement('div');
-
-    //     seasons.forEach(element => {
-    //         console.log('Seasons:');
-    //         console.log(element);
-
-    //         console.log('imagen:');
-    //         console.log(element.poster_path);
-
-    //         let image;
-    //         if (element.poster_path === null) {
-    //             image = "./assets/static/images/image-not-available.jpg";
-    //         } else {
-    //             image = "http://image.tmdb.org/t/p/w300/" + element.poster_path;
-    //         }
-
-    //         let year = new Date(element.air_date).getFullYear();
-
-    //         section.innerHTML = `
-    //         <li class="card">
-    //             <a href="#">
-    //                 <figure class="card__figure">
-    //                     <img class="card__figure--image" src="${image}" alt="${element.name}">
-    //                     <span class="card__figure--year">${year}</span>
-    //                 </figure>
-    //                 <header class="card__header">
-    //                     <h2 class="card__title">${element.name} ${element.season_number}</h2>
-    //                 </header>
-    //             </a>
-    //         </li>
-    //         `;
-    //         sectionContainer.innerHTML += section.innerHTML;
-    //     });
-
-    //     return sectionContainer.innerHTML;
-    // }
-
-    // buildSeasonSection(seasons, series) { // TODO
-    //     let ses = new Array(seasons);
-
-    //     ses.forEach(element => {
-    //         console.log(element);
-    //     });
-    // }
 }
 
 
