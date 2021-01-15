@@ -25,6 +25,7 @@ class Components {
                 <a href="#">
                     <figure class="card__figure">
                         <img class="card__figure--image" src="${image}" alt="${element.original_title}">
+                        <img class="playIcon" src="https://img.icons8.com/nolan/96/play.png"/>
                         <span class="card__figure--year">${year}</span>
                     </figure>
                     <header class="card__header">
@@ -90,6 +91,7 @@ class Components {
                 <a href="#">
                     <figure class="card__figure">
                         <img class="card__figure--image" src="${image}" alt="${element.original_name}">
+                        <img class="playIcon" src="https://img.icons8.com/nolan/96/play.png"/>
                         <span class="card__figure--year">${year}</span>
                     </figure>
                     <header class="card__header">
@@ -126,6 +128,7 @@ class Components {
                 <a href="#">
                     <figure class="card__figure">
                         <img class="card__figure--image" src="${image}" alt="${element.name}">
+                        <img class="playIcon" src="https://img.icons8.com/nolan/96/play.png"/>
                         <span class="card__figure--year">${year}</span>
                     </figure>
                     <header class="card__header">
